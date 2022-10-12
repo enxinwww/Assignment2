@@ -1,0 +1,104 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 750,
+    "height": 400,
+    "title": "How Economy effect a country happiness",
+    "data": {
+      "url": "https://raw.githubusercontent.com/enxinwww/FIT3179/main/Homework3/data/Happiness2015.csv"
+    },
+    "params": [
+      {
+        "name": "Region_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "Western Europe",
+            "Latin America and Caribbean",
+            "Southeastern Asia",
+            "Central and Eastern Europe",
+            "Eastern Asia",
+            "Sub-Saharan Africa",
+            "Southern Asia"
+          ],
+          "labels": [
+            "Show All",
+            "Western Europe",
+            "Latin America and Caribbean",
+            "Southeastern Asia",
+            "Central and Eastern Europe",
+            "Eastern Asia",
+            "Sub-Saharan Africa",
+            "Southern Asia"
+          ],
+          "name": "Region Selection: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "Region_selection == null || datum.Region == Region_selection"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "Economy (GDP per Capita)",
+        "type": "quantitative",
+        "title": "Economy (GDP per Capita)",
+        "axis": {"tickCount": 7},
+        "scale": {"type": "linear", "domain": [0, 1.6]}
+      },
+      "y": {
+        "field": "Happiness Score",
+        "type": "quantitative",
+        "axis": {"tickCount": 10},
+        "scale": {"type": "log", "domain": [2, 10]}
+      }
+    },
+    "layer": [
+      {
+        "mark": "circle",
+        "encoding": {
+          "opacity": {"value": 0.6},
+          "color": {
+            "field": "Region",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Western Europe",
+                "Latin America and Caribbean",
+                "Southeastern Asia",
+                "Central and Eastern Europe",
+                "Eastern Asia",
+                "Sub-Saharan Africa",
+                "Southern Asia"
+              ],
+              "range": [
+                "#e41a1c",
+                "#984ea3",
+                "#ff7f00",
+                "#a6cee3",
+                "#377eb8",
+                "#a65628",
+                "#17A589"
+              ]
+            }
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Happiness Score", "type": "quantitative", "format": ","}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "middle",
+          "dx": -12,
+          "fontSize": 11.5,
+          "fontStyle": "italic"
+        }
+      }
+    ]
+  }

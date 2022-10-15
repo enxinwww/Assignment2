@@ -28,6 +28,14 @@
   </article>
   
 </section>
+<section>
+  <h2>Happiness value of each country</h2>
+  <article>
+    <div id="choropleth_map1" ></div>
+    <p> The above visualisation shows the happiness value of each country in the world as a map. </p>
+  </article>
+  
+</section>
 
 <section>
   <h2>How freedom of a country effect it's happiness value</h2>
@@ -84,6 +92,7 @@
     var spec3 = "js/scatterplot_health.vg.json";
     var spec4 = "js/scatterplot_economy.vg.json";
     var spec5 = "js/linegraph_compare.vg.json";
+    var spec6 = "js/choropleth_map1.vg.json"
 
     vegaEmbed('#choropleth_map', spec1).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -102,6 +111,10 @@
     }).catch(console.error);
 
     vegaEmbed('#line_compare', spec5).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#choropleth_map1', spec6).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   </script>

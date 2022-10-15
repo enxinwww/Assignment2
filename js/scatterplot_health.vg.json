@@ -1,7 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 750,
-    "height": 400,
+    "width": "container",
     "title": "How Health effect a country happiness",
     "data": {
       "url": "https://raw.githubusercontent.com/enxinwww/FIT3179/main/Homework3/data/Happiness2015.csv"

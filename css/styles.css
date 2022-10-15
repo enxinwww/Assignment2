@@ -1,21 +1,20 @@
-#choropleth_map {
-	left: 150px;
+#choropleth_map1 {
 	/*height: 1000px;
 	width: 800px;*/
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 70%;
 }
 
 #scatter_freedom{
-	left: 50px;
+
 }
 
 #scatter_health{
-	left: 50px;
+
 }
 
-div{
-	text-align: left;
-	padding-bottom: 30px;
-}
 
 h1{
 	text-align: center;
@@ -34,7 +33,7 @@ h3{
 }
 
 p{
-	font-size: 22px;
+	font-size: 18px;
 }
 
 header{
@@ -45,16 +44,15 @@ header{
 
 nav {
 	float: left;
-	width: 15%;
-	height: 500px; /* only for demonstration, should be removed */
+	width: 15%; 
 	background: #ccc;
 	padding: 20px;
 }
 
 .nav-r{
 	float: right;
-	width: 19%;
-	height: 500px; /* only for demonstration, should be removed */
+	width: 17%;
+	height: 500px; 
 	background: #ccc;
 	padding: 20px;
 }
@@ -62,18 +60,17 @@ nav {
 article{
 	padding: 20px;
 	background-color: #f1f1f1;
-	 /* only for demonstration, should be removed */
 }
 
 .article-r{
 	float: left;
 	padding: 20px;
-	width: 75%;
+	width: 77%;
 	background-color: #f1f1f1;
-	height: 500px;
 }
 
 section::after {
+	
 	content: "";
 	display: table;
 	clear: both;

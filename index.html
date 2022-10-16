@@ -24,7 +24,11 @@
   <h2>Happiness value of each country</h2>
   <article>
     <div id="choropleth_map1" ></div>
-    <p> The above visualisation shows the happiness value of each country in the world as a map. </p>
+    <p> 
+      The above visualisation shows the happiness value of each country on 2015 on a map. 
+      The darker the colour the higher the happiness score, point on the country to view the detail of the country. 
+      Switzerland has the highest happiness score on 2015, which was 7.587.
+    </p>
   </article>
   
 </section>
@@ -40,10 +44,20 @@
 <section>
   <h2> Issues that effect it's happiness value</h2>
   <nav class="nav-r">
-      <p>
-        This visualisation visualise the relation ship between happiness and freedom, 
-        So..  ddddddd
-      </p>
+      <div class="divr">
+        The visualisations on the left shows how each factor Freedom, Health, 
+        Economics of a country effects on the Happiness score. 
+      </div>
+
+      <div class="divr">
+        Freedom has a lesser impact on happiness comparing to the other two factor 
+        considering it does not have clustered colleration, the dots was spread out.
+      </div>
+
+      <div class="divr">
+        Use the selection to filter the visualisation by region.
+      </div>
+
   </nav>
   <article class="article-r">
     <div id="scatter_freedom"></div>
@@ -52,7 +66,17 @@
   </article>
 </section>
 
+<section>
+  <h2>Countries ranking by Happiness score</h2>
+  <p> The visualization below aranged the country with descending order by their happiness score.</p>
 
+    <div id="barchart"></div>
+
+</section>
+
+<footer>
+  <p class="r">Wong En Xin, 31110363</p>
+</footer>
 
 
 
@@ -63,7 +87,8 @@
     var spec3 = "js/scatterplot_health.vg.json";
     var spec4 = "js/scatterplot_economy.vg.json";
     var spec5 = "js/linegraph_compare.vg.json";
-    var spec6 = "js/choropleth_map1.vg.json"
+    var spec6 = "js/choropleth_map1.vg.json";
+    var spec7 = "js/barchart_ranking.vg.json"
 
     vegaEmbed('#choropleth_map', spec1).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -86,6 +111,10 @@
     }).catch(console.error);
 
     vegaEmbed('#choropleth_map1', spec6).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#barchart', spec7).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   </script>

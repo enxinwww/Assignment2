@@ -1,0 +1,91 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": { "text": "Happiness by country" },
+    "width": 920,
+    "height": 1500,
+    "data": {
+        "url":
+        "https://raw.githubusercontent.com/enxinwww/FIT3179/main/Homework3/data/Happiness2015.csv"
+    },
+    "params": [
+        {
+          "name": "Region_selection",
+          "bind": {
+            "input": "select",
+            "options": [
+              null,
+              "Western Europe",
+              "Latin America and Caribbean",
+              "Southeastern Asia",
+              "Central and Eastern Europe",
+              "Eastern Asia",
+              "Sub-Saharan Africa",
+              "Southern Asia"
+            ],
+            "labels": [
+              "Show All",
+              "Western Europe",
+              "Latin America and Caribbean",
+              "Southeastern Asia",
+              "Central and Eastern Europe",
+              "Eastern Asia",
+              "Sub-Saharan Africa",
+              "Southern Asia"
+            ],
+            "name": "Region Selection: "
+          }
+        }
+      ],
+      "transform": [
+        {
+          "filter": "Region_selection == null || datum.Region == Region_selection"
+        }
+      ],
+      
+      "encoding": {
+      "x": {"field": "Happiness Score", "type": "quantitative"},
+      "y": {"field": "Country", "type": "nominal", "sort": "-x"}
+      },
+      "layer": [
+        {
+          "mark": "bar",
+          "encoding": {
+            "color": {
+              "field": "Region",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "Western Europe",
+                  "Latin America and Caribbean",
+                  "Southeastern Asia",
+                  "Central and Eastern Europe",
+                  "Eastern Asia",
+                  "Sub-Saharan Africa",
+                  "Southern Asia"
+                ],
+                "range": [
+                  "#e41a1c",
+                  "#984ea3",
+                  "#ff7f00",
+                  "#a6cee3",
+                  "#377eb8",
+                  "#a65628",
+                  "#17A589"
+                ]
+              },
+              "sort":"-color"
+            },
+            
+            "tooltip": [
+              {"field": "Country", "type": "nominal"},
+              {"field": "Happiness Rank", "type": "ordinal"},
+              {"field": "Happiness Score", "type": "quantitative", "format": ","},
+              {"field": "Economy (GDP per Capita)", "type": "quantitative"},
+              {"field": "Health (Life Expectancy)", "type": "quantitative"},
+              {"field": "Freedom", "type": "quantitative"},
+              {"field": "Region", "type": "nominal"}
+            ]
+          }
+        }
+      ]
+    }
